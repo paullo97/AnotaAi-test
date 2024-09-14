@@ -1,0 +1,58 @@
+@import '../../../assets/colors.scss';
+
+.search {
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 1px solid $gray;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 20px;
+  color: $blue;
+  padding: 10px 40px 10px 15px;
+}
+
+.searchTerm:focus{
+  border-top: 2px solid $blue;
+  border-bottom: 2px solid $blue;
+  border-left: 2px solid $blue;
+}
+
+.search:focus-within .searchButton {
+  border: 2px solid $blue;
+}
+
+.searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width:50px;
+  border: 1px solid $gray;
+  background: $white;
+  text-align: center;
+  color: $white;
+  border-radius: 0 5px 5px 0;
+
+  cursor: pointer;
+
+  img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    filter: opacity(0.6)
+  }
+}
+
+.wrap{
+  width: 50%;
+  position: absolute;
+  top: 15%;
+  transform: translate(-50%, -50%);
+}
