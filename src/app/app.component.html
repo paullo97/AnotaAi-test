@@ -1,8 +1,17 @@
 <app-header />
 <div class="main-container">
-  <app-search-input />
+  <app-search-input (search)="searchItem($event)" />
 
-  <div class="main-container-list">
-    <app-card />
-  </div>
+  @if (loading) {
+    <p>loading...</p> <!-- TODO: transform this in a beauty component -->
+  } @else {
+    <div class="main-container-list">
+      @for (item of data; track $index) {
+        <app-card
+          [attr.id]="item.id + '_' + $index"
+          [item]="item"
+          (deleteItem)="deleteItem($event)"/>
+      }
+    </div>
+  }
 </div>
