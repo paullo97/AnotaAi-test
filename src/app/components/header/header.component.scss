@@ -1,6 +1,8 @@
+@import '../../../assets/colors.scss';
+
 .container
 {
-  background-color: white;
+  background-color: $white;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -8,7 +10,7 @@
   align-items: center;
   gap: 15px;
 
-  filter: drop-shadow(5px 1px 6px #5e5e5e71);
+  filter: drop-shadow(5px 1px 6px $shadow);
 
   img {
     width: 60px;
@@ -25,21 +27,21 @@
       align-items: center;
       justify-content: center;
       font-style: italic;
-      color: grey;
+      color: $gray;
       width: 80%;
     }
 
     .author::before {
       content: "";
       flex-grow: 0.5;
-      border-bottom: 1px solid grey;
+      border-bottom: 1px solid $gray;
       margin-right: 5px;
     }
 
     .author::after {
       content: "";
       flex-grow: 2;
-      border-bottom: 1px solid grey;
+      border-bottom: 1px solid $gray;
       margin-left: 5px;
     }
   }
