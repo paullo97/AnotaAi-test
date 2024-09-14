@@ -2,6 +2,8 @@
 
 .search {
   display: flex;
+  width: 50vw;
+  margin: 10% 0;
 }
 
 .searchTerm {
@@ -48,11 +50,4 @@
     width: 30px;
     filter: opacity(0.6)
   }
-}
-
-.wrap{
-  width: 50%;
-  position: absolute;
-  top: 15%;
-  transform: translate(-50%, -50%);
 }
