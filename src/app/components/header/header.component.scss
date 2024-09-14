@@ -1,0 +1,46 @@
+.container
+{
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 15px;
+
+  filter: drop-shadow(5px 1px 6px #5e5e5e71);
+
+  img {
+    width: 60px;
+  }
+
+  &-titles {
+    .title {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
+      color: grey;
+      width: 80%;
+    }
+
+    .author::before {
+      content: "";
+      flex-grow: 0.5;
+      border-bottom: 1px solid grey;
+      margin-right: 5px;
+    }
+
+    .author::after {
+      content: "";
+      flex-grow: 2;
+      border-bottom: 1px solid grey;
+      margin-left: 5px;
+    }
+  }
+}
