@@ -4,9 +4,11 @@
     <img
       class="card-img"
       [src]="item?.img"
-      alt="iamge card"
+      alt="image card"
     />
-    <p class="chip-type {{ defineClassChip(item?.type || 1) }}">{{defineType( item?.type || 1 )}}</p> <!-- TODO: Find Way to better fix chip in right -->
+    <div class="chip-type">
+      <p class="chip {{ defineClassChip(item?.type || 1) }}">{{defineType( item?.type || 1 )}}</p>
+    </div>
     <div class="delete" (click)="handleDeleteItem()">
       <img src="../../../assets/icons/close.svg" alt="close" />
     </div>

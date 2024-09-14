@@ -3,7 +3,7 @@
   <app-search-input (search)="searchItem($event)" />
 
   @if (loading) {
-    <p>loading...</p> <!-- TODO: transform this in a beauty component -->
+    <p>loading...</p>
   } @else {
     <div class="main-container-list">
       @for (item of data; track $index) {
