@@ -5,9 +5,6 @@ import { IItem } from '../model/item.model';
   providedIn: 'root'
 })
 export class StorageService {
-
-  constructor() { }
-
   setItem(key: string, value: any): void {
     localStorage.setItem(key, JSON.stringify(value));
   }
@@ -26,9 +23,9 @@ export class StorageService {
   }
 
   deleteItemById(key: string, id: string): void {
-    const items = this.getItem(key);
+    const items: Array<IItem> = this.getItem(key);
     if (items && Array.isArray(items)) {
-      const updatedItems = items.filter(item => item.id.toString() !== id);
+      const updatedItems = items.filter((item: IItem) => item.id.toString() !== id);
       this.setItem(key, updatedItems);
     }
   }
