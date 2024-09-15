@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ToastService {
-  constructor() {}
-
   showToast({ title = "", message = "", type = "info", duration = 3000 }: { title: string, message: string, type: string, duration: number }) {
     const toastContainer = document.getElementById('toast');
     if (toastContainer) {
@@ -36,7 +34,7 @@ export class ToastService {
           <p class="toast__msg">${message}</p>
         </div>
         <div class="toast__close">
-          <i>X</i>
+          <i><img src="../../assets/icons/close.svg" width="30px" /></i>
         </div>
       `;
 
