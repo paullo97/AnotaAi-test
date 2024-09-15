@@ -68,7 +68,10 @@ export class AppComponent implements OnInit {
     const text = param.trim().toLowerCase();
     this.textSeach = param;
     this.enableFilter = text.length > 0;
-    this.filteredData = this.data.filter((item: IItem) => item.title.toLowerCase().includes(text))
+    this.filteredData = this.data.filter((item: IItem) =>
+      item.title.toLowerCase().includes(text) ||
+      item.description.toLowerCase().includes(text)
+    )
   }
 
   public deleteItem(item: IItem): void {
