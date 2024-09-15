@@ -9,6 +9,8 @@ import { StorageService } from './core/services/storage.service';
 import { IItem } from './core/model/item.model';
 import { ToastComponent } from './components/toast/toast.component';
 import { ToastService } from './core/services/toast.service';
+import { LoadingComponent } from "./components/loading/loading.component";
+import { NoResultComponent } from "./components/no-result/no-result.component";
 
 @Component({
   selector: 'app-root',
@@ -19,8 +21,10 @@ import { ToastService } from './core/services/toast.service';
     SearchInputComponent,
     CardComponent,
     ServicesModule,
-    ToastComponent
-  ],
+    ToastComponent,
+    LoadingComponent,
+    NoResultComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -47,6 +51,12 @@ export class AppComponent implements OnInit {
       })
       .catch(error => {
         console.error('Error fetching data', error);
+        this.toast.showToast({
+          title: 'Error',
+          message: 'Error in Get Data!',
+          type: 'error',
+          duration: 4000
+        });
       })
       .finally(() => {
         this.loading = false;
@@ -55,9 +65,10 @@ export class AppComponent implements OnInit {
 
   public searchItem(param: string): void
   {
+    const text = param.trim().toLowerCase();
     this.textSeach = param;
-    this.enableFilter = param.length > 0;
-    this.filteredData = this.data.filter((item: IItem) => item.title.toLowerCase().includes(param.toLowerCase()))
+    this.enableFilter = text.length > 0;
+    this.filteredData = this.data.filter((item: IItem) => item.title.toLowerCase().includes(text))
   }
 
   public deleteItem(item: IItem): void {

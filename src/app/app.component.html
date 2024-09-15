@@ -3,7 +3,7 @@
   <app-search-input (search)="searchItem($event)" />
 
   @if (loading) {
-    <p>loading...</p>
+    <app-loading />
   } @else {
     <div class="main-container-list">
       @for (item of (enableFilter ? filteredData : data); track $index) {
@@ -13,7 +13,7 @@
           (deleteItem)="deleteItem($event)"/>
       }
       @empty {
-        <p>Sorry about that, no result</p>
+        <app-no-result />
       }
     </div>
   }
