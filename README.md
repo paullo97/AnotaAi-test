@@ -1,27 +1,94 @@
-# AnotaAiTest
+# Front-End Test - Anota AI <img src="https://githubanotaai.github.io/frontend-interview-mock-data/assets/favicon.png" />
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
+This project was developed as part of the selection process for a front-end developer position at Anota AI, using **Angular 17**.
 
-## Development server
+## Objective 📌
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The objective of this test is to evaluate technical skills in Angular 2+ and the ability to translate a visual design into a functional web page, with attention to details and front-end best practices.
 
-## Code scaffolding
+## Tasks Completed ✔️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The project includes the following features:
 
-## Build
+1. **Angular 17 workspace creation**.
+2. **Development of the page header**.
+3. **Card listing**, fetching data from a REST API:
+   - API URL: `https://githubanotaai.github.io/frontend-interview-mock-data/cardlist.json`
+   - Card types:
+     - Type 1: **Paisagem**
+     - Type 2: **Flor**
+     - Type 3: **Pizza**
+4. **Delete card option**: Each card includes a delete button that removes it from the list.
+5. **Search field**: Allows users to filter the cards by title or description.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Additional Features
 
-## Running unit tests
+- **Toast Notifications**: The application displays toast notifications for important actions such as card deletion and filtering.
+- **Data Persistence with localStorage**: The fetched JSON data from the API is stored in `localStorage` for persistent access, even after refreshing the page. This was implemented using a custom **service** that handles API requests and localStorage operations.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instructions to Run the Project
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Node.js and NPM installed.
+- Angular CLI installed globally.
 
-## Further help
+### Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/paullo97/AnotaAi-test.git
+   ```
+
+2. Navigate to the project directory
+  ```
+    cd AnotaAi-test
+  ```
+
+3. Install the dependencies
+  ```
+    npm install
+  ```
+
+4. Start the development server
+  ```
+    ng serve
+  ```
+
+5. Open the application in your browser
+  ```
+    http://localhost:4200
+  ```
+
+### Project Structure 
+
+The project is organized into several key directories:
+
+- **src**: Root directory containing the main application code.
+  - **app**: This directory contains the core structure of the Angular application.
+    - **components**: Contains all reusable components such as the header and card list components.
+    - **core**: 
+      - **model**: This folder houses the system's data models, which define the structure of the application's entities.
+      - **services**: Contains service files, which are responsible for various functionalities, such as:
+        - **localStorageService**: Manages storing and retrieving data from `localStorage`.
+        - **dataService**: Handles fetching card data from the JSON API.
+        - **toastService**: Provides toast notifications for important user actions.
+  - **assets**: 
+    - **colors.scss**: This file contains the system's color variables, making it easy to manage and maintain a consistent color scheme.
+    - **icons**: This folder holds the system's icons and images, used throughout the application.
+
+## Features
+- Card List: Displays a list of cards with data fetched from the API.
+- Delete Cards: Allows users to delete cards from the list.
+- Search: Filters the list of cards based on the title or description.
+- Toast Notifications: Feedback notifications are shown after important actions, like deleting a card or applying a filter.
+- Local Storage: The application stores the fetched card data in localStorage to maintain the list even after page reloads.
+
+## Technologies Used
+- Angular 17
+- CSS (without the use of frameworks like Bootstrap or Angular Material)
+- HTTPClientModule for HTTP requests.
+- localStorage for data persistence.
+
+## Final Considerations
+This test was developed following the guidelines of the briefing, without using any external libraries for styling the page or data manipulation. The layout was entirely built using pure CSS, organized with a known CSS architecture/methodology.
