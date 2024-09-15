@@ -6,12 +6,17 @@
     <p>loading...</p>
   } @else {
     <div class="main-container-list">
-      @for (item of data; track $index) {
+      @for (item of (enableFilter ? filteredData : data); track $index) {
         <app-card
           [attr.id]="item.id + '_' + $index"
           [item]="item"
           (deleteItem)="deleteItem($event)"/>
       }
+      @empty {
+        <p>Sorry about that, no result</p>
+      }
     </div>
   }
 </div>
+
+<app-toast></app-toast>

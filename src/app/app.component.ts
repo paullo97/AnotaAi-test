@@ -7,6 +7,8 @@ import { ServicesModule } from './core/services/services.module';
 import { DataService } from './core/services/data.service';
 import { StorageService } from './core/services/storage.service';
 import { IItem } from './core/model/item.model';
+import { ToastComponent } from './components/toast/toast.component';
+import { ToastService } from './core/services/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -16,19 +18,24 @@ import { IItem } from './core/model/item.model';
     HeaderComponent,
     SearchInputComponent,
     CardComponent,
-    ServicesModule
+    ServicesModule,
+    ToastComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
 
+  private textSeach: string = '';
   public loading: boolean = true;
   public data: Array<IItem> = [];
+  public filteredData: Array<IItem> = [];
+  public enableFilter: boolean = false;
 
   constructor(
     private readonly dataService: DataService,
-    private readonly storage: StorageService
+    private readonly storage: StorageService,
+    private readonly toast: ToastService
   )
   { }
 
@@ -48,10 +55,23 @@ export class AppComponent implements OnInit {
 
   public searchItem(param: string): void
   {
-    console.log(param);
+    this.textSeach = param;
+    this.enableFilter = param.length > 0;
+    this.filteredData = this.data.filter((item: IItem) => item.title.toLowerCase().includes(param.toLowerCase()))
   }
 
   public deleteItem(item: IItem): void {
-    console.log(item);
+    this.storage.deleteItemById('data', item.id.toString());
+    this.data = this.storage.getItem('data');
+    this.toast.showToast({
+      title: 'Success',
+      message: 'Operation completed successfully!',
+      type: 'success',
+      duration: 4000
+    });
+
+    if(this.enableFilter) {
+      this.searchItem(this.textSeach);
+    }
   }
 }
