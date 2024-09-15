@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IItem } from '../model/item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +25,10 @@ export class StorageService {
     localStorage.clear();
   }
 
-  searchItems(key: string, searchTerm: string): any[] {
-    const items = this.getItem(key);
-    if (items && Array.isArray(items)) {
-      return items.filter(item => JSON.stringify(item).includes(searchTerm));
-    }
-    return [];
-  }
-
   deleteItemById(key: string, id: string): void {
     const items = this.getItem(key);
     if (items && Array.isArray(items)) {
-      const updatedItems = items.filter(item => item.id !== id);
+      const updatedItems = items.filter(item => item.id.toString() !== id);
       this.setItem(key, updatedItems);
     }
   }
