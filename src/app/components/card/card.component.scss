@@ -94,20 +94,21 @@ $radius: 6px;
   padding: 5px;
   border-radius: 10px;
   width: fit-content;
-  color: #ffffff;
+  color: $white;
   font-size: 10px;
   font-weight: 600;
   position: relative;
   margin-right: 3px;
 }
+
 .paisagem {
-  background-color: #0358F9 !important;
+  background-color: $paisagem !important;
 }
 
 .flor {
-  background-color: #FC0447 !important;
+  background-color: $flor !important;
 }
 
 .pizza {
-  background-color: #958A04 !important;
+  background-color: $pizza !important;
 }
