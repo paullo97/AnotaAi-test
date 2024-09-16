@@ -34,7 +34,7 @@ export class ToastService {
           <p class="toast__msg">${message}</p>
         </div>
         <div class="toast__close">
-          <i><img src="../../assets/icons/close.svg" width="30px" /></i>
+          <i><img src="assets/icons/close.svg" width="30px" /></i>
         </div>
       `;
 
