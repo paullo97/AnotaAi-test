@@ -5,7 +5,6 @@ import { EnumType } from '../../core/model/type.model';
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })

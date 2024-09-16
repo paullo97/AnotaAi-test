@@ -30,7 +30,7 @@ import { NoResultComponent } from "./components/no-result/no-result.component";
 })
 export class AppComponent implements OnInit {
 
-  private textSeach: string = '';
+  public textSeach: string = '';
   public loading: boolean = true;
   public data: Array<IItem> = [];
   public filteredData: Array<IItem> = [];

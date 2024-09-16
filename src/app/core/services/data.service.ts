@@ -8,7 +8,7 @@ export class DataService {
 
   private apiUrl = 'https://githubanotaai.github.io/frontend-interview-mock-data/cardlist.json';
 
-  getData(): Promise<Array<IItem>> {
+  public getData(): Promise<Array<IItem>> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         fetch(this.apiUrl)
