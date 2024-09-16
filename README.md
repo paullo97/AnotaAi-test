@@ -26,6 +26,10 @@ The project includes the following features:
 - **Toast Notifications**: The application displays toast notifications for important actions such as card deletion and filtering.
 - **Data Persistence with localStorage**: The fetched JSON data from the API is stored in `localStorage` for persistent access, even after refreshing the page. This was implemented using a custom **service** that handles API requests and localStorage operations.
 
+## Github Pages
+
+This project is also available on GitHub Pages. If you don't want to download and run the project locally, you can access it online at the following URL: https://paullo97.github.io/AnotaAi-test/
+
 ## Instructions to Run the Project
 
 ### Prerequisites
